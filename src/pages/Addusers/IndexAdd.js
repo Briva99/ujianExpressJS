@@ -20,10 +20,21 @@ export default class Addusers extends Component {
         });
     };
     onSubmit = () => {
-    console.log(this.state.username),
-    console.log(this.state.email),
-    console.log(this.state.phone),
-    console.log(this.state.alamat)
+        post('', {
+            username: username,
+            email: email,
+            phone: phone,
+            address: address,
+          })
+          .then((res) => {
+            console.log(res);
+            navigation.navigate('User');
+            Alert.alert('Berhasil Diinput');
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
 
     }
     
